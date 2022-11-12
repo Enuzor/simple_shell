@@ -77,8 +77,8 @@ ssize_t get_input(info_t *info)
 		i = j + 1;
 		if (i >= len)
 		{
-			1 = len = 0;
-			info->cmd_buff_type = CMD_NORM;
+			i = len = 0;
+			info->cmd_buf_type = CMD_NORM;
 		}
 
 		*buf_p = p;
@@ -131,13 +131,13 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	if (i == len)
 		i = len = 0;
 
-	r = read_buff(info, buf, &len);
+	r = read_buf(info, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = realloc(p, s, s ? s + k : k + 1);
+	new_p =_realloc(p, s, s ? s + k : k + 1);
 	if (!new_p)
 		return (p ? free(p), -1 : -1);
 

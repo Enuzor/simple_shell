@@ -16,7 +16,7 @@ int _myexit(info_t *info)
 		if (exitcheck == -1)
 		{
 			info->status = 2;
-			printerror(info, "Illegal number: ");
+			print_error(info, "Illegal number: ");
 			_eputs(info->argv[1]);
 			_eputchar('\n');
 			return (1);
@@ -47,7 +47,7 @@ int _mycd(info_t *info)
 		dir = _getenv(info, "HOME=");
 		if (!dir)
 			chdir_ret = /* TODO: what should this be? */
-				chdir((dir = _ getenv(info, "PWD=")) ? dir : "/");
+				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
 		else
 			chdir_ret = chdir(dir);
 	}
@@ -91,6 +91,6 @@ int _myhelp(info_t *info)
 	arg_array = info->argv;
 	_puts("help call works. Funcyion not yet implemented \n");
 	if (0)
-		_puts(arg_array); /*temp att_unused workaround */
+		_puts(*arg_array); /*temp att_unused workaround */
 	return (0);
 }

@@ -1,4 +1,4 @@
-#include "shee.h"
+#include "shell.h"
 
 /**
  * _eputs - prints an input string
@@ -31,7 +31,7 @@ int _eputchar(char c)
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
 	
-	if (c == BUF_FLUSH || i > >= WRITE_BUF_SIE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
 		write(2, buf, i);
 		i = 0;
@@ -79,7 +79,7 @@ int _putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putfd(*str++, fd)
+		i += _putfd(*str++, fd);
 	}
 	return (i);
 }

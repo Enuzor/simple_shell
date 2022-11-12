@@ -79,7 +79,7 @@ int print_d(int input, int fd)
 		}
 		current %= i;
 	}
-	__Putchar('0' + current);
+	__putchar('0' + current);
 	count++;
 
 	return (count);
