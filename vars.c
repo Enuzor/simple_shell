@@ -134,7 +134,6 @@ int replace_vars(info_t *info)
 			continue;
 		}
 		replace_string(&info->argv[i], _strdup(""));
-
 	}
 	return (0);
 }
