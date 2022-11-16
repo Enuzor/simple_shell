@@ -117,7 +117,6 @@ int build_history_list(info_t *info, char *buf, int linecount)
 		if (info->history)
 			node = info->history;
 	add_node_end(&node, buf, linecount);
-	
 	if (!info->history)
 		info->history = node;
 	return (0);
@@ -133,7 +132,7 @@ int renumber_history(info_t *info)
 {
 	list_t *node = info->history;
 	int i = 0;
-	
+
 	while (node)
 	{
 		node->num = i++;
